@@ -9,7 +9,7 @@
 
 This voice pack provides Undead Male voice alerts for the [PVPWarn](https://github.com/RagedUnicorn/wow-classic-pvpwarn) addon. All combat alerts will use the Undead Male voice instead of the default sounds.
 
-[🔊 **Listen to Voice Examples**](https://ragedunicorn.github.io/wow-classic-pvpwarn-vpnfc/)
+[🔊 **Listen to Voice Examples**](https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/)
 
 ## Requirements
 
