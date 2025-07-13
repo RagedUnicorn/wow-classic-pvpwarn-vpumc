@@ -1,0 +1,30 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+  <id>development</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>${package.includeBaseDirectory}</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>${basedir}</directory>
+      <includes>
+        <include>README.md</include>
+        <include>LICENSE</include>
+        <include>code/*.lua</include>
+        <include>code/*.xml</include>
+        <include>assets/sounds/**/*.mp3</include>
+        <include>localization/*.lua</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <files>
+    <file>
+      <source>build-resources/pvpwarn-voice-pack-development.toc.tpl</source>
+      <outputDirectory>./</outputDirectory>
+      <filtered>true</filtered>
+      <destName>PVPWarn_VoicePack_UMC.toc</destName>
+    </file>
+  </files>
+</assembly>
