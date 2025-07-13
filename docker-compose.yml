@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ffmpeg:
+    image: ragedunicorn/ffmpeg:7.1.1
+    container_name: ffmpeg_concat
+    volumes:
+      - ./voice_clone:/data
+    working_dir: /data
+    command: -f concat -safe 0 -i files.txt -c copy merged.ogg
+    networks:
+      - ffmpeg_net
+
+networks:
+  ffmpeg_net:
+    driver: bridge
