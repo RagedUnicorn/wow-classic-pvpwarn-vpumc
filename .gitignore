@@ -1,0 +1,28 @@
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS generated files
+.DS_Store
+ehthumbs.db
+Icon
+Thumbs.db
+
+# java/maven/intellij
+target/
+.idea/
+*.iml
+
+# GitHub Pages build artifacts
+docs/assets/
+docs/index_local.html
+
+# Generated files from voice cloning
+voice_clone/files.txt
+voice_clone/merged.ogg
