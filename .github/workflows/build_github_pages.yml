@@ -1,0 +1,45 @@
+name: Build and Deploy GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Copy assets to github_page folder
+        run: |
+          echo "Copying assets folder to github_page..."
+          cp -r assets github_page/
+          echo "Assets copied successfully"
+      - name: List github_page contents
+        run: |
+          echo "Contents of github_page folder:"
+          ls -la github_page/
+          echo "Contents of github_page/assets:"
+          ls -la github_page/assets/ || echo "No assets folder"
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./github_page
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
