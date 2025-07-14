@@ -47,46 +47,10 @@ local me = voicePackUndeadMale
 
 me.tag = "Core"
 
---[[
-  Show welcome message to user
-]]--
-local function ShowWelcomeMessage()
-  print(
-    string.format("|cFF00FFB0" .. "Loaded - " .. voicePackUndeadMale.L["addon_name"]
-      .. voicePackUndeadMale.L["info_title"],
-    GetAddOnMetadata(RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME, "Version"))
-  )
-end
-
---[[
-  Register addon events
-
-  @param {table} self
-]]--
-local function RegisterEvents(self)
-  -- Fired when the addon is loaded
-  self:RegisterEvent("ADDON_LOADED")
-end
-
---[[
-  Init function
-]]--
-local function Initialize()
-  me.logger.LogDebug(me.tag, "Initialize addon")
-
-  ShowWelcomeMessage()
-
-  local result = rgpvpw.voicePack.RegisterVoicePack(
-    RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME,
-    RGPVPW_VP_UMC_CONSTANTS.DISPLAY_NAME,
-    RGPVPW_VP_UMC_CONSTANTS.ASSET_PATH
-  )
-
-  if not result then
-    me.logger.LogError(me.tag, "Failed to register voice pack")
-    return
-  end
-end
+-- forward declaration
+local RegisterEvents
+local Initialize
+local ShowWelcomeMessage
 
 --[[
   Addon load
@@ -107,4 +71,45 @@ function me.OnEvent(event, addonName)
     me.logger.LogEvent(me.tag, "ADDON_LOADED")
     Initialize()
   end
+end
+
+--[[
+  Register addon events
+
+  @param {table} self
+]]--
+RegisterEvents = function(self)
+  -- Fired when the addon is loaded
+  self:RegisterEvent("ADDON_LOADED")
+end
+
+--[[
+  Init function
+]]--
+Initialize = function()
+  me.logger.LogDebug(me.tag, "Initialize addon")
+
+  ShowWelcomeMessage()
+
+  local result = rgpvpw.voicePack.RegisterVoicePack(
+    RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME,
+    RGPVPW_VP_UMC_CONSTANTS.DISPLAY_NAME,
+    RGPVPW_VP_UMC_CONSTANTS.ASSET_PATH
+  )
+
+  if not result then
+    me.logger.LogError(me.tag, "Failed to register voice pack")
+    return
+  end
+end
+
+--[[
+  Show welcome message to user
+]]--
+ShowWelcomeMessage = function()
+  print(
+    string.format("|cFF00FFB0" .. "Loaded - " .. voicePackUndeadMale.L["addon_name"]
+      .. voicePackUndeadMale.L["info_title"],
+      GetAddOnMetadata(RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME, "Version"))
+  )
 end
