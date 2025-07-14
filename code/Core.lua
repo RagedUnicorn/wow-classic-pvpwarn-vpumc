@@ -48,12 +48,14 @@ local me = voicePackUndeadMale
 me.tag = "Core"
 
 --[[
-  Addon load
-
-  @param {table} self
+  Show welcome message to user
 ]]--
-function me.OnLoad(self)
-  me.RegisterEvents(self)
+local function ShowWelcomeMessage()
+  print(
+    string.format("|cFF00FFB0" .. "Loaded - " .. voicePackUndeadMale.L["addon_name"]
+      .. voicePackUndeadMale.L["info_title"],
+    GetAddOnMetadata(RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME, "Version"))
+  )
 end
 
 --[[
@@ -61,30 +63,18 @@ end
 
   @param {table} self
 ]]--
-function me.RegisterEvents(self)
+local function RegisterEvents(self)
   -- Fired when the addon is loaded
   self:RegisterEvent("ADDON_LOADED")
 end
 
 --[[
-  MainFrame OnEvent handler
-
-  @param {string} event
-]]--
-function me.OnEvent(event, addonName)
-  if event == "ADDON_LOADED" and addonName == RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME then
-    me.logger.LogEvent(me.tag, "ADDON_LOADED")
-    me.Initialize()
-  end
-end
-
---[[
   Init function
 ]]--
-function me.Initialize()
+local function Initialize()
   me.logger.LogDebug(me.tag, "Initialize addon")
 
-  me.ShowWelcomeMessage()
+  ShowWelcomeMessage()
 
   local result = rgpvpw.voicePack.RegisterVoicePack(
     RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME,
@@ -99,12 +89,22 @@ function me.Initialize()
 end
 
 --[[
-  Show welcome message to user
+  Addon load
+
+  @param {table} self
 ]]--
-function me.ShowWelcomeMessage()
-  print(
-    string.format("|cFF00FFB0" .. "Loaded - " .. voicePackUndeadMale.L["addon_name"]
-      .. voicePackUndeadMale.L["info_title"],
-    GetAddOnMetadata(RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME, "Version"))
-  )
+function me.OnLoad(self)
+  RegisterEvents(self)
+end
+
+--[[
+  MainFrame OnEvent handler
+
+  @param {string} event
+]]--
+function me.OnEvent(event, addonName)
+  if event == "ADDON_LOADED" and addonName == RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME then
+    me.logger.LogEvent(me.tag, "ADDON_LOADED")
+    Initialize()
+  end
 end
