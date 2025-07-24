@@ -6,6 +6,7 @@
 
 ![](./docs/wow_badge.svg)
 ![](./docs/license_mit.svg)
+[![Lint Project](https://github.com/RagedUnicorn/wow-classic-pvpwarn-vpnfc/actions/workflows/lint.yaml/badge.svg)](https://github.com/RagedUnicorn/wow-classic-pvpwarn-vpnfc/actions/workflows/lint.yaml)
 
 This voice pack provides Undead Male voice alerts for the [PVPWarn](https://github.com/RagedUnicorn/wow-classic-pvpwarn) addon. All combat alerts will use the Undead Male voice instead of the default sounds.
 
