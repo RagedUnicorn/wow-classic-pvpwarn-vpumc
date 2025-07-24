@@ -28,7 +28,7 @@ voice_clone/files.txt
 voice_clone/merged.ogg
 
 # Node.js and Playwright test artifacts
-node_modules/
-test-results/
-playwright-report/
-playwright/.cache/
+github_page_tests/node_modules/
+github_page_tests/test-results/
+github_page_tests/playwright-report/
+github_page_tests/playwright/.cache/

@@ -30,7 +30,7 @@ module.exports = defineConfig({
   ],
 
   webServer: process.env.CI ? undefined : {
-    command: 'npx http-server github_page -p 8080',
+    command: 'npx http-server ../github_page -p 8080',
     port: 8080,
     reuseExistingServer: !process.env.CI,
   },
