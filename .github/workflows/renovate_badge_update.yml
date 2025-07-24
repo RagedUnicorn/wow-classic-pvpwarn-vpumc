@@ -1,0 +1,61 @@
+name: Update WoW Badge on Renovate PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'pom.xml'
+
+jobs:
+  update-badge:
+    # Only run on Renovate PRs that update WoW versions
+    if: |
+      github.actor == 'renovate[bot]' &&
+      contains(github.event.pull_request.title, 'WoW Classic Era Version Update')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Check if WoW versions changed
+        id: check-changes
+        run: |
+          # Fetch the base branch to compare against
+          git fetch origin ${{ github.base_ref }}
+          # Check if addon.interface or addon.supported.patch changed
+          if git diff origin/${{ github.base_ref }} HEAD -- pom.xml | grep -E "(addon\.interface|addon\.supported\.patch)"; then
+            echo "versions_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "versions_changed=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Generate SVG Badge
+        if: steps.check-changes.outputs.versions_changed == 'true'
+        run: |
+          echo "WoW version properties changed, regenerating SVG badge..."
+          mvn clean generate-resources -Pgenerate-sources -Dgenerate.sources.overwrite=true -f pom.xml
+      - name: Check for SVG changes
+        id: check-svg
+        run: |
+          if git diff --exit-code docs/wow_badge.svg; then
+            echo "svg_changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "svg_changed=true" >> $GITHUB_OUTPUT
+          fi
+      - name: Commit updated SVG
+        if: steps.check-svg.outputs.svg_changed == 'true'
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/wow_badge.svg
+          git commit -m "chore: Update WoW badge SVG with new versions"
+          git push

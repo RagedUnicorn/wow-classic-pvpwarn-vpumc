@@ -19,5 +19,11 @@
       <filtered>true</filtered>
       <destName>Environment.lua</destName>
     </file>
+    <file>
+      <source>build-resources/wow-badge.svg.tpl</source>
+      <outputDirectory>./</outputDirectory>
+      <filtered>true</filtered>
+      <destName>wow_badge.svg</destName>
+    </file>
   </files>
 </assembly>

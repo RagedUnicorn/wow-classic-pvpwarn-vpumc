@@ -44,10 +44,17 @@
     {
       "matchDatasources": [
         "custom.wow-versions",
+        "custom.wow-patch-versions"
+      ],
+      "groupName": "WoW Classic Era Version Update",
+      "description": "Update WoW Classic Era interface and patch versions"
+    },
+    {
+      "matchDatasources": [
         "custom.wow-game-versions"
       ],
-      "groupName": "WoW Classic Era Updates",
-      "description": "Update WoW Classic Era interface version"
+      "groupName": "WoW Classic Era Game Version",
+      "description": "Update WoW Classic Era game version for CurseForge"
     }
   ],
   "maven": {
