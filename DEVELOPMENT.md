@@ -154,6 +154,23 @@ The `build-resources/` directory contains:
 
 The project supports GitHub Actions for automated builds and deployments. See `.github/workflows/` for CI configuration.
 
+## Dependency Management
+
+This repository uses [Renovate](https://docs.renovatebot.com/) for automated dependency updates. Renovate monitors the following:
+
+- **Maven plugins** - Automatically creates PRs for Maven plugin updates
+- **GitHub Actions** - Updates workflow action versions
+- **WoW version data** - Tracks World of Warcraft Classic Era interface versions, patch versions, and game versions
+
+### Renovate Configuration
+
+The Renovate configuration (`renovate.json`) includes:
+
+- **Schedule**: Runs weekly on Mondays
+- **Custom datasources**: Fetches WoW version data from [RagedUnicorn/wow-renovate-data](https://github.com/RagedUnicorn/wow-renovate-data)
+- **Auto-merge**: Enabled for development dependencies
+- **Grouping**: Groups related updates (Maven plugins, GitHub Actions, WoW versions)
+
 ## Testing
 
 ### GitHub Pages Tests
