@@ -1,0 +1,65 @@
+name: Test GitHub Pages After Deployment
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      deployment_url:
+        description: 'GitHub Pages URL to test'
+        required: false
+        default: 'https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/'
+
+jobs:
+  playwright-tests:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'workflow_dispatch') ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'github-pages')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: Wait for GitHub Pages propagation
+        run: |
+          echo "Waiting 30 seconds for GitHub Pages to fully propagate..."
+          sleep 30
+      - name: Set GitHub Pages URL
+        id: set-url
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "url=${{ github.event.inputs.deployment_url }}" >> $GITHUB_OUTPUT
+          else
+            # For deployment_status events, construct from repository name
+            REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+            OWNER=$(echo "${{ github.repository }}" | cut -d'/' -f1 | tr '[:upper:]' '[:lower:]')
+            URL="https://${OWNER}.github.io/${REPO_NAME}/"
+            echo "url=${URL}" >> $GITHUB_OUTPUT
+          fi
+      - name: Run Playwright tests
+        run: |
+          echo "Testing GitHub Pages at: ${{ steps.set-url.outputs.url }}"
+          npm test
+        env:
+          GITHUB_PAGES_URL: ${{ steps.set-url.outputs.url }}
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+      - name: Upload test artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 7

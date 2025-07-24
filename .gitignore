@@ -26,3 +26,9 @@ docs/index_local.html
 # Generated files from voice cloning
 voice_clone/files.txt
 voice_clone/merged.ogg
+
+# Node.js and Playwright test artifacts
+node_modules/
+test-results/
+playwright-report/
+playwright/.cache/

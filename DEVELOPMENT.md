@@ -153,3 +153,43 @@ The `build-resources/` directory contains:
 ### Continuous Integration
 
 The project supports GitHub Actions for automated builds and deployments. See `.github/workflows/` for CI configuration.
+
+## Testing
+
+### GitHub Pages Tests
+
+The project includes Playwright tests to verify the GitHub Pages deployment is working correctly.
+
+#### Running Tests Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Run tests against local server
+npm test
+
+# Run tests against GitHub Pages (Linux/Mac)
+GITHUB_PAGES_URL=https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/ npm test
+
+# Run tests against GitHub Pages (Windows Command Prompt)
+set GITHUB_PAGES_URL=https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/ && npm test
+
+# Run tests against GitHub Pages (Windows PowerShell)
+$env:GITHUB_PAGES_URL="https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/"; npm test
+```
+
+#### Available Tests
+
+- **Main page loading** - Verifies the page loads with correct title
+- **Navigation buttons** - Tests class selection buttons functionality  
+- **Audio players** - Ensures audio elements are properly loaded
+- **Audio file links** - Validates that audio files are accessible
+- **Section navigation** - Tests switching between different class sections
+
+#### GitHub Actions Integration
+
+Tests run automatically after GitHub Pages deployment:
+
+1. `build_github_pages.yml` - Builds and deploys the GitHub Pages site
+2. `test_github_pages.yml` - Runs Playwright tests when deployment completes (triggered by `deployment_status` event)
