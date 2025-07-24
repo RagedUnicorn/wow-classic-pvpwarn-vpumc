@@ -20,8 +20,8 @@ target/
 *.iml
 
 # GitHub Pages build artifacts
-docs/assets/
-docs/index_local.html
+github_page/assets/
+github_page/index_local.html
 
 # Generated files from voice cloning
 voice_clone/files.txt
