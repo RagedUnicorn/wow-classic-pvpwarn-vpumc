@@ -11,7 +11,7 @@
     <addon.author>Michael Wiesendanger &lt;michael.wiesendanger@gmail.com&gt;</addon.author>
     <addon.description>Undead Male Classic Voice Pack for PVPWarn</addon.description>
     <addon.name>PVPWarn Voice Pack Undead Male Classic</addon.name>
-    <addon.displayName>pvpwarn-voice-pack-nfc</addon.displayName>
+    <addon.displayName>pvpwarn-voice-pack-umc</addon.displayName>
     <addon.curseforge.projectId>TODO</addon.curseforge.projectId>
     <!-- renovate: datasource=custom.wow-game-versions depName=wow-gameversion versioning=loose -->
     <addon.curseforge.gameVersion>12919</addon.curseforge.gameVersion>
