@@ -3,7 +3,7 @@ version: '3.8'
 services:
   ffmpeg:
     image: ragedunicorn/ffmpeg:7.1.1-alpine3.22.1-2
-    container_name: ffmpeg_concat_vp_nfc
+    container_name: ffmpeg_concat_vp_umc
     volumes:
       - .:/data
     working_dir: /data
