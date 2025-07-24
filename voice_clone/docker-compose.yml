@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   ffmpeg:
-    image: ragedunicorn/ffmpeg:7.1.1
-    container_name: ffmpeg_concat_vp_umc
+    image: ragedunicorn/ffmpeg:7.1.1-alpine3.22.1-2
+    container_name: ffmpeg_concat_vp_nfc
     volumes:
-      - ./voice_clone:/data
+      - .:/data
     working_dir: /data
     command: -f concat -safe 0 -i files.txt -c copy merged.ogg
     networks:

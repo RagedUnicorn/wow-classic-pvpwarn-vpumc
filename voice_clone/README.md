@@ -8,19 +8,21 @@ The voice samples in this directory are Undead Male voice lines extracted from W
 
 ## Process
 
+**Note**: All commands should be run from within the `voice_clone` directory.
+
 1. **Collect Voice Samples**: Individual `.ogg` files containing various Undead Male voice lines are placed in this directory
 
 2. **Generate File List**: Run the shell script to create a list of all files to be concatenated:
    ```bash
-   ../generate_file_list.sh
+   ./generate_file_list.sh
    ```
    This creates `files.txt` containing the list of all `.ogg` files in the proper format for ffmpeg
 
 3. **Concatenate Files**: Use Docker Compose to run ffmpeg and merge all audio files:
    ```bash
-   docker-compose up
+   docker compose up
    ```
-   This uses the `ragedunicorn/ffmpeg:7.1.1` Docker image to concatenate all files listed in `files.txt` into a single `merged.ogg` file
+   This uses the ffmpeg Docker image to concatenate all files listed in `files.txt` into a single `merged.ogg` file
 
 4. **Voice Cloning**: Upload `merged.ogg` to ElevenLabs to create a custom voice clone of the Undead Male character
 

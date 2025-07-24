@@ -3,14 +3,9 @@
 # Script to generate a file listing for ffmpeg concat
 # Output format: file 'filename.ogg'
 
-# Check if voice_clone directory exists
-if [ ! -d "voice_clone" ]; then
-    echo "Error: voice_clone directory not found!"
-    exit 1
-fi
-
+# Script is now run from within voice_clone directory
 # Output file
-OUTPUT_FILE="voice_clone/files.txt"
+OUTPUT_FILE="files.txt"
 
 # Clear the output file if it exists
 > "$OUTPUT_FILE"
@@ -19,19 +14,17 @@ OUTPUT_FILE="voice_clone/files.txt"
 echo "Generating file listing in $OUTPUT_FILE..."
 
 # Find all .ogg files and format them for ffmpeg concat
-cd voice_clone
 for file in *.ogg; do
     if [ -f "$file" ]; then
-        echo "file '$file'" >> files.txt
+        echo "file '$file'" >> "$OUTPUT_FILE"
     fi
 done
-cd ..
 
 # Count the files
 FILE_COUNT=$(grep -c "^file" "$OUTPUT_FILE" 2>/dev/null || echo 0)
 
 if [ "$FILE_COUNT" -eq 0 ]; then
-    echo "No .ogg files found in voice_clone directory"
+    echo "No .ogg files found in current directory"
     exit 1
 else
     echo "Successfully generated listing for $FILE_COUNT files"
