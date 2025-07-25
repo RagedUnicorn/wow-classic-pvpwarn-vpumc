@@ -34,6 +34,13 @@
       "description": "Group all GitHub Actions updates"
     },
     {
+      "matchManagers": [
+        "npm"
+      ],
+      "groupName": "npm dependencies",
+      "description": "Group all npm dependencies updates"
+    },
+    {
       "matchDepTypes": [
         "devDependencies"
       ],
