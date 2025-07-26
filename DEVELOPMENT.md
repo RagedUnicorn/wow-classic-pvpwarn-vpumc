@@ -233,7 +233,7 @@ $env:GITHUB_PAGES_URL="https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/
 #### Available Tests
 
 - **Main page loading** - Verifies the page loads with correct title
-- **Navigation buttons** - Tests class selection buttons functionality  
+- **Navigation buttons** - Tests class selection buttons functionality
 - **Audio players** - Ensures audio elements are properly loaded
 - **Audio file links** - Validates that audio files are accessible
 - **Section navigation** - Tests switching between different class sections
