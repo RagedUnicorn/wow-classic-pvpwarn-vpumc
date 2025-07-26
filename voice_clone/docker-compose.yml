@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   ffmpeg:
     image: ragedunicorn/ffmpeg:7.1.1-alpine3.22.1-2
