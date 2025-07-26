@@ -5,5 +5,12 @@ globals = {
   "RGPVPW_VP_UMC_ENVIRONMENT"
 }
 
-files["code"] = {std = "lua51"}
-files["localization"] = {std = "lua51"}
+files = {
+  ["code"] = {std = "lua51"},
+  ["localization"] = {std = "lua51"}
+}
+
+exclude_files = {
+  ".luacheckrc",
+  "target/"
+}

@@ -132,6 +132,40 @@ The `build-resources/` directory contains:
 - `*.tpl` - Template files for environment-specific generation
 - `release-notes.md` - Release notes for deployments
 
+## Code Quality
+
+### Running Luacheck
+
+The project includes a Docker Compose configuration for running [Luacheck](https://github.com/lunarmodules/luacheck), a static analyzer and linter for Lua. This ensures code quality and catches common issues.
+
+**To run Luacheck:**
+
+```bash
+docker compose up
+```
+
+This will:
+- Mount the project directory as read-only
+- Run Luacheck on all Lua files
+- Output results in JUnit XML format
+
+**Configuration:**
+- `.luacheckrc` - Contains Luacheck configuration, including:
+  - Global variables specific to WoW addons
+  - Lua 5.1 standard for compatibility
+  - Excluded directories (e.g., `target/`)
+
+## Testing and Code Quality
+
+Before committing changes:
+
+1. Run Luacheck to ensure code quality: `docker compose up`
+2. Test in development mode
+3. Switch to release mode and test again
+4. Verify no debug logs appear in release mode
+5. Test with `/reload` to ensure saved variables work correctly
+6. Test the main functionality (energy tick tracking)
+
 ### Creating a New Release
 
 1. Update version in `pom.xml`
@@ -171,9 +205,9 @@ The Renovate configuration (`renovate.json`) includes:
 - **Auto-merge**: Enabled for development dependencies
 - **Grouping**: Groups related updates (Maven plugins, GitHub Actions, WoW versions)
 
-## Testing
+## GitHub Pages Testing
 
-### GitHub Pages Tests
+### Playwright Tests
 
 The project includes Playwright tests to verify the GitHub Pages deployment is working correctly.
 
