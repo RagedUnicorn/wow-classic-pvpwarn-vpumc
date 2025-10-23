@@ -1,5 +1,5 @@
 # THIS FILE IS AUTO-GENERATED. ALL CHANGES ARE OVERWRITTEN
-## Interface: 11507
+## Interface: 11508
 ## Title: PVPWarn Voice Pack Undead Male Classic
 ## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
 ## Notes: Undead Male Classic Voice Pack for PVPWarn
