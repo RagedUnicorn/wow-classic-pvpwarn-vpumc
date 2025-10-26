@@ -56,14 +56,14 @@ jobs:
           GITHUB_PAGES_URL: ${{ steps.set-url.outputs.url }}
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: playwright-report
           path: github_page_tests/playwright-report/
           retention-days: 30
       - name: Upload test artifacts on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: test-results
           path: github_page_tests/test-results/
