@@ -15,7 +15,7 @@
     <addon.curseforge.projectId>TODO</addon.curseforge.projectId>
     <!-- renovate: datasource=custom.wow-game-versions depName=wow-gameversion versioning=loose -->
     <addon.curseforge.gameVersion>14029</addon.curseforge.gameVersion>
-    <addon.wago.projectId>TODO</addon.wago.projectId>
+    <addon.wago.projectId>nGvpy06x</addon.wago.projectId>
     <addon.name.short>PVPW Voice Pack</addon.name.short>
     <addon.tag.version>v${project.version}</addon.tag.version>
     <!-- renovate: datasource=custom.wow-versions depName=wow-interface versioning=loose -->
