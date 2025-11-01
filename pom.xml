@@ -12,7 +12,7 @@
     <addon.description>Undead Male Classic Voice Pack for PVPWarn</addon.description>
     <addon.name>PVPWarn Voice Pack Undead Male Classic</addon.name>
     <addon.displayName>pvpwarn-voice-pack-umc</addon.displayName>
-    <addon.curseforge.projectId>TODO</addon.curseforge.projectId>
+    <addon.curseforge.projectId>1376487</addon.curseforge.projectId>
     <!-- renovate: datasource=custom.wow-game-versions depName=wow-gameversion versioning=loose -->
     <addon.curseforge.gameVersion>14029</addon.curseforge.gameVersion>
     <addon.wago.projectId>nGvpy06x</addon.wago.projectId>
