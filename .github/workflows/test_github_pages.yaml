@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       deployment_url:
-        description: 'GitHub Pages URL to test'
+        description: GitHub Pages URL to test
         required: false
-        default: 'https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/'
+        default: https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/
 
 jobs:
   playwright-tests:
@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: 24
       - name: Install dependencies
         run: |
           cd github_page_tests

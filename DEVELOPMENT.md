@@ -242,5 +242,5 @@ $env:GITHUB_PAGES_URL="https://ragedunicorn.github.io/wow-classic-pvpwarn-vpumc/
 
 Tests run automatically after GitHub Pages deployment:
 
-1. `build_github_pages.yml` - Builds and deploys the GitHub Pages site
-2. `test_github_pages.yml` - Runs Playwright tests when deployment completes (triggered by `deployment_status` event)
+1. `build_github_pages.yaml` - Builds and deploys the GitHub Pages site
+2. `test_github_pages.yaml` - Runs Playwright tests when deployment completes (triggered by `deployment_status` event)
