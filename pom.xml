@@ -25,7 +25,7 @@
       Classic (Interface: 11508) - covers: Classic Era, Hardcore, Season of Discovery
     -->
     <!-- renovate: datasource=custom.wow-versions-classic depName=wow-interface-classic versioning=loose -->
-    <addon.interface.classic>11508</addon.interface.classic>
+    <addon.interface.classic>11509</addon.interface.classic>
     <!-- Aggregated interface line consumed by the .toc template. When additional WoW variants are supported, list them here as a comma-separated string. -->
     <addon.interface>${addon.interface.classic}</addon.interface>
     <!--
