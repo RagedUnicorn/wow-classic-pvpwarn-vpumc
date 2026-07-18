@@ -33,7 +33,7 @@
       Classic (1.15.8) - covers: Classic Era, Hardcore, Season of Discovery
     -->
     <!-- renovate: datasource=custom.wow-patch-versions-classic depName=wow-patch-classic versioning=loose -->
-    <addon.supported.patch.classic>1.15.8</addon.supported.patch.classic>
+    <addon.supported.patch.classic>1.15.9</addon.supported.patch.classic>
     <addon.identifier>${project.groupId}.${project.artifactId}</addon.identifier>
     <addon.project.categories>PvP Combat</addon.project.categories>
   </properties>
