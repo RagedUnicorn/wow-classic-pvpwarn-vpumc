@@ -23,7 +23,7 @@
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ]]--
 
--- luacheck: globals GetAddOnMetadata UIErrorsFrame
+-- luacheck: globals C_AddOns UIErrorsFrame
 
 local mod = rgpvpwvpumc
 local me = {}
@@ -66,6 +66,21 @@ me.colors.info = "|cff18f3ff"   -- blue
 me.colors.debug = "|cff7413d9"  -- magenta
 me.colors.event = "|cff1cdb4f"  -- green
 
+local addonTitle
+
+--[[
+  Returns the addon title, fetched once and cached for the session
+
+  @return {string}
+]]--
+local GetAddonTitle = function()
+  if addonTitle == nil then
+    addonTitle = C_AddOns.GetAddOnMetadata(RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME, "Title")
+  end
+
+  return addonTitle
+end
+
 --[[
   Writes string message to the default chat frame
 
@@ -78,7 +93,7 @@ local PrintLogMessage = function(levelColor, tag, message)
     tag = "Unknown"
   end
 
-  print(levelColor .. GetAddOnMetadata(RGPVPW_VP_UMC_CONSTANTS.ADDON_NAME, "Title") .. ":" .. tag .. " - " .. message)
+  print(levelColor .. GetAddonTitle() .. ":" .. tag .. " - " .. message)
 end
 
 --[[
