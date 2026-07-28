@@ -66,7 +66,7 @@ For technical details and development information, see [DEVELOPMENT.md](DEVELOPM
 
 MIT License
 
-Copyright (c) 2025 Michael Wiesendanger
+Copyright (c) 2026 Michael Wiesendanger
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
