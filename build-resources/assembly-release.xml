@@ -15,6 +15,7 @@
         <include>code/*.lua</include>
         <include>code/*.xml</include>
         <include>assets/sounds/**/*.mp3</include>
+        <include>assets/**/*.tga</include>
         <include>localization/*.lua</include>
       </includes>
     </fileSet>

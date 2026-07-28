@@ -13,3 +13,7 @@
 *.png binary
 *.mp3 binary
 *.ogg binary
+
+# Textures are binary - never touch line endings
+*.blp binary
+*.tga binary

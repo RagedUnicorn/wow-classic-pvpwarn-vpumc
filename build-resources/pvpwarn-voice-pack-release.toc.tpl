@@ -8,6 +8,7 @@ ${addon.comment.generated.toc}
 ## X-Category: ${addon.project.categories}
 ## X-Curse-Project-ID: ${addon.curseforge.projectId}
 ## X-Wago-ID: ${addon.wago.projectId}
+## IconTexture: Interface\AddOns\PVPWarn_VoicePack_UMC\assets\pvpwarn_voice_undead_male
 
 # constant values
 code/Constants.lua
