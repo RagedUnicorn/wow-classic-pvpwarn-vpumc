@@ -1,6 +1,9 @@
 name: Release GitHub
 on: [workflow_dispatch]
 
+permissions:
+  contents: write
+
 jobs:
   github-release-job:
     name: GitHub Release
