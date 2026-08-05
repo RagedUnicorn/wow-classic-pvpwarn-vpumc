@@ -4,7 +4,8 @@
 
 > Voice pack addon for PVPWarn featuring Undead Male voice alerts for WoW Classic
 
-![](./docs/wow_badge.svg)
+![](./docs/wow_badge_classic.svg)
+![](./docs/wow_badge_tbc.svg)
 ![](./docs/license_mit.svg)
 [![Lint Project](https://github.com/RagedUnicorn/wow-classic-pvpwarn-vpumc/actions/workflows/lint.yaml/badge.svg)](https://github.com/RagedUnicorn/wow-classic-pvpwarn-vpumc/actions/workflows/lint.yaml)
 [![Test GitHub Pages](https://github.com/RagedUnicorn/wow-classic-pvpwarn-vpumc/actions/workflows/test_github_pages.yaml/badge.svg)](https://github.com/RagedUnicorn/wow-classic-pvpwarn-vpumc/actions/workflows/test_github_pages.yaml)

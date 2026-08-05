@@ -20,10 +20,16 @@
       <destName>Environment.lua</destName>
     </file>
     <file>
-      <source>build-resources/wow-badge.svg.tpl</source>
+      <source>build-resources/wow-badge-classic.svg.tpl</source>
       <outputDirectory>./</outputDirectory>
       <filtered>true</filtered>
-      <destName>wow_badge.svg</destName>
+      <destName>wow_badge_classic.svg</destName>
+    </file>
+    <file>
+      <source>build-resources/wow-badge-tbc.svg.tpl</source>
+      <outputDirectory>./</outputDirectory>
+      <filtered>true</filtered>
+      <destName>wow_badge_tbc.svg</destName>
     </file>
   </files>
 </assembly>

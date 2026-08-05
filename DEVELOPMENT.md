@@ -194,7 +194,7 @@ This repository uses [Renovate](https://docs.renovatebot.com/) for automated dep
 
 - **Maven plugins** - Automatically creates PRs for Maven plugin updates
 - **GitHub Actions** - Updates workflow action versions
-- **WoW version data** - Tracks World of Warcraft Classic Era interface versions, patch versions, and game versions
+- **WoW version data** - Tracks World of Warcraft Classic Era and TBC Anniversary interface versions, patch versions, and game versions
 
 ### Renovate Configuration
 
