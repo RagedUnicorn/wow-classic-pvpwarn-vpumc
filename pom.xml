@@ -94,7 +94,7 @@
                 </goals>
                 <configuration>
                   <owner>ragedunicorn</owner>
-                  <repository>wow-classic-pvpwarn</repository>
+                  <repository>wow-classic-pvpwarn-vpumc</repository>
                   <!--suppress UnresolvedMavenProperty -->
                   <authToken>${github.auth-token}</authToken>
                   <tagName>${addon.tag.version}</tagName>
