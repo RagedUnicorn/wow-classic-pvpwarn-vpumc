@@ -1,6 +1,14 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+# Build-generated artifacts and the templates they are filtered from - never convert.
+# The Maven assembly rewrites these on every generate-resources run; pinning them keeps
+# the index blob byte-identical to the worktree file so a rebuild leaves no stat mismatch
+PVPWarn_VoicePack_UMC.toc -text
+code/Environment.lua -text
+wow_badge_*.svg -text
+build-resources/*.tpl -text
+
 # Shell scripts should always use LF line endings
 *.sh text eol=lf
 *.bash text eol=lf
