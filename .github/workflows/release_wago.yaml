@@ -2,7 +2,12 @@ name: Release Wago.io
 on: [workflow_dispatch]
 
 jobs:
+  # A release never publishes from a red ref: the gate is the lint workflow,
+  # called as a reusable workflow so the steps live in one place.
+  lint:
+    uses: ./.github/workflows/lint.yaml
   wago-release-job:
+    needs: [lint]
     name: Wago.io Release
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -24,6 +29,27 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Package Production
         run: mvn generate-resources -D generate.sources.overwrite=true -P release
+      # Builds the zip the publish step uploads (same profile, same tree) without
+      # publishing it, and fails when the voice pack could not load from it.
+      - name: Verify Package Contents
+        run: |
+          mvn --batch-mode --no-transfer-progress assembly:single -P deploy-wago
+          contents=$(unzip -Z1 target/PVPWarn_VoicePack_UMC.zip)
+          root="PVPWarn_VoicePack_UMC/"
+          if ! grep -qx "${root}PVPWarn_VoicePack_UMC.toc" <<< "$contents"; then
+            echo "::error::package is missing ${root}PVPWarn_VoicePack_UMC.toc"
+            exit 1
+          fi
+          for folder in code localization; do
+            if ! grep -q "^${root}${folder}/.*\.lua$" <<< "$contents"; then
+              echo "::error::package is missing the ${root}${folder}/ folder"
+              exit 1
+            fi
+          done
+          if ! grep -q "^${root}assets/sounds/.*\.mp3$" <<< "$contents"; then
+            echo "::error::package is missing the ${root}assets/sounds/ files"
+            exit 1
+          fi
       - name: Publish Package to Wago.io
         run: |
           mvn --batch-mode --no-transfer-progress \
