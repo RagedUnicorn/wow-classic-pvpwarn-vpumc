@@ -22,7 +22,7 @@
   SOFTWARE.
 ]]--
 
--- luacheck: globals C_AddOns
+-- luacheck: read globals C_AddOns
 
 --[[
   PVPWarn Voice Pack - Undead Male (Classic)

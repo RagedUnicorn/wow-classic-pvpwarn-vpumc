@@ -156,7 +156,7 @@ This will:
 
 **Configuration:**
 - `.luacheckrc` - Contains Luacheck configuration, including:
-  - Global variables specific to WoW addons
+  - Writable globals (the voice pack namespace and its own tables) and read-only globals (PVPWarn's `rgpvpw` namespace)
   - Lua 5.1 standard for compatibility
   - Excluded directories (e.g., `target/`)
 
