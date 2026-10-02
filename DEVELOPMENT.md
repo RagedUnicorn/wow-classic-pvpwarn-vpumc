@@ -122,6 +122,11 @@ This will generate/update:
 - `code/Environment.lua` (from environment.lua.tpl)
 
 **Important:** Always commit files in development state. The repository should maintain development configuration by default.
+Switching to release rewrites the checked-in `PVPWarn_VoicePack_UMC.toc` and `code/Environment.lua`; do not commit that state. Switch back afterwards with the development command above:
+
+```bash
+mvn generate-resources -D generate.sources.overwrite=true -P development
+```
 
 ### Build Resources
 
