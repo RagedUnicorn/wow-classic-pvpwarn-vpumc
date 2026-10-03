@@ -4,7 +4,7 @@
 ## Author: Michael Wiesendanger <michael.wiesendanger@gmail.com>
 ## Notes: Undead Male Classic Voice Pack for PVPWarn
 ## Dependencies: PVPWarn
-## Version: v1.0.0
+## Version: v1.1.0
 ## IconTexture: Interface\AddOns\PVPWarn_VoicePack_UMC\assets\pvpwarn_voice_undead_male
 
 # constant values
