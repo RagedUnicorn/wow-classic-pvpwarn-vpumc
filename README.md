@@ -17,7 +17,7 @@ This voice pack provides Undead Male voice alerts for the [PVPWarn](https://gith
 ## Requirements
 
 This voice pack requires the main PVPWarn addon to be installed:
-- [PVPWarn on CurseForge](https://www.curseforge.com/wow/addons/pvpwarn)
+- [PVPWarn on CurseForge](https://www.curseforge.com/wow/addons/pvpwarn-rg)
 - [PVPWarn on GitHub](https://github.com/RagedUnicorn/wow-classic-pvpwarn)
 
 ## Installation
